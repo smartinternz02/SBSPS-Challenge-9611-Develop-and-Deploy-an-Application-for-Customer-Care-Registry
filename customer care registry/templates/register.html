@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=email], input[type=password],input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #0099FF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+   border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+ 
+}
+
+button:hover {
+  background-color: blueviolet;
+  box-shadow: 0px 15px 20px rgba(46, 9, 157, 0.4);
+  color: #fff;
+  transform: translateY(-6px);
+}
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: rgba(255,255,255,0.6);
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=email], input[type=password],input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=email]:focus, input[type=password],input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 0.8 px solid black;
+  margin-bottom: 25px;
+}
+h2{
+position:absolute;
+top:100px;
+right:500;
+}
+
+    </style>
+    <form method="POST" class="modal-content animater">
+        <center><label style="font-family: monospace;font-size: 50px;"><b>Register Account</b></label></center>
+        <div class="container">
+    
+                <label for="email-address" ><b>Email address</b></label>
+                <input type="email" name="email" style="font-family:monospace;"id="email-address" placeholder="Enter email address">
+         
+                <label for="username"><b>Username</b></label>
+                <input type="text" name="username"style="font-family:monospace;"id="username" placeholder="Enter your Name" />
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" style="font-family:monospace;"name="password"id="password" placeholder="Enter Password">
+                    <hr>
+ 
+                    <button type="submit">Create Account</button>
+
+            <center><p style="font-size:20px"><b>Already have an Account</b> ? <a href="{{ url_for('login') }}">Login</a></p></center>
+        </div>
+    </form>
+    {% endblock %}

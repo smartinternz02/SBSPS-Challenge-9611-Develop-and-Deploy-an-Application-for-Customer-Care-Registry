@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <style>
+    .detail-card{
+    text-align: center;
+    margin-top:0.5em !important;
+    border-bottom: 1px black solid;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.bl{
+    background-color: rgb(151, 151, 245) !important;
+}
+
+.yl{
+    background-color: rgb(243, 240, 88);
+}
+
+.gr{
+    background-color: rgb(95, 204, 91);
+}
+
+
+
+/* ticket detail */
+.ticket-detail{
+    margin-top:15em;
+    border: 1px black solid;
+    padding:1em;
+    border-radius:0.2em;
+}
+
+.register-form{
+    margin-top:10em;
+}
+
+body{
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F04%2FPhotos-download-abstract-minimalist-wallpaper-HD.jpg&f=1&nofb=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.email-address
+{
+    width: 100px; 
+    height: 20px;
+}
+</style>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>Promote Agents</h3>
+                    <div class="container">
+                        <form method="POST">
+                            <select name="admin-candidate">
+                                {% for user in all_users %}
+                                    <option value="{{user[4]}}">{{user[0]}}</option>
+                                {% endfor %}
+                            </select>
+                            <input class="btn btn-danger btn-sm" type="submit" value="Make Agent"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3>Assign Tasks</h3>
+                    <div class="container">
+                        <table class="table">
+                            <thead class="table-dark">
+                            <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>View</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for ticket in tickets %}
+                                    <tr>
+                                        <td>{{ ticket[3] }}</td>
+                                        <td>{{ ticket[4] }}</td>
+                                        <td><a href="/ticket/{{ticket[0]}}"><button class="btn btn-primary">View</button></a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
